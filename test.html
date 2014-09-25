@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>登录框</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+	<body style="background: #555;">
+	
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>登录</h3>
+					<p>请输入E-mail和密码</p>
+				</div>
+				<div class="modal-body">
+					<form action="admin/user/login" method="post" accept-charset="utf-8">	
+						<table class="table">
+							<tr>
+								<td>Email</td>
+								<td><input type="text" name="email" value="" class="form-control" placeholder="请输入你的E-mail" /></td>
+							</tr>
+							<tr>
+								<td>密码</td>
+								<td><input type="password" name="密码" value="" class="form-control" placeholder="请输入你的密码" /></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input type="submit" name="login" value="登入" class="btn btn-primary btn-lg btn-block" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					© xiaobin_hlj80
+				</div>
+			</div>
+		</div>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
