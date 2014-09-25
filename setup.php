@@ -8,7 +8,7 @@ if(!class_exists('SQLite3'))
 $base=new SQLite3($dbname, 0666); 
 
 $query = "CREATE TABLE $mytable(
-            ID text NOT NULL PRIMARY KEY,
+            ID bigint(20) NOT NULL PRIMARY KEY,
             NAME text NOT NULL,
             GRADE text NOT NULL,         
             SCHOOL text NOT NULL,

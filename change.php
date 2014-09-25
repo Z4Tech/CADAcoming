@@ -1,184 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh_cn">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="CADA Registering">
-    <meta name="author" content="Z4Tech">
+<?php
 
-    <title>CADA报名名单</title>
+$myid = $_GET['id'];
 
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
-  </head>
+$dbname='members.db';
+$mytable ="member";
 
-  <body>
+if(!class_exists('SQLite3'))
+   die("SQLite 3 NOT supported.");
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index">CADA报名</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="index">报名</a></li>
-            <li><a href="show">列表</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="main">
-         <form class="form-horizontal">
-<fieldset>
-
-<!-- Form Name -->
-<legend>CADA报名表</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="name">姓名</label>  
-  <div class="col-md-4">
-  <input id="name" name="name" type="text" placeholder="你的真实姓名" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="grade">年级</label>  
-  <div class="col-md-4">
-  <input id="grade" name="grade" type="text" placeholder="确定是在校学生" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="id">学号</label>  
-  <div class="col-md-5">
-  <input id="id" name="id" type="text" placeholder="主要用来验证身份……" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="school">院系</label>
-  <div class="col-md-4">
-    <select id="school" name="school" class="form-control">
-      <option value="信息科学技术学院">信息科学技术学院</option>
-      <option value="数学科学学院">数学科学学院</option>
-      <option value="物理学院">物理学院</option>
-      <option value="化学与分子工程学院">化学与分子工程学院</option>
-      <option value="生命科学学院">生命科学学院</option>
-      <option value="工学院">工学院</option>
-      <option value="城市与环境学院">城市与环境学院</option>
-      <option value="地球与空间科学学院">地球与空间科学学院</option>
-      <option value="心理学系">心理学系</option>
-      <option value="信息管理系">信息管理系</option>
-      <option value="新闻与传播学院">新闻与传播学院</option>
-      <option value="经济学院">经济学院</option>
-      <option value="光华管理学院">光华管理学院</option>
-      <option value="社会学系">社会学系</option>
-      <option value="中国语言文学系">中国语言文学系</option>
-      <option value="历史学系">历史学系</option>
-      <option value="考古文博学院">考古文博学院</option>
-      <option value="哲学系（宗教学系）">哲学系（宗教学系）</option>
-      <option value="外国语学院">外国语学院</option>
-      <option value="国际关系学院">国际关系学院</option>
-      <option value="法学院">法学院</option>
-      <option value="政府管理学院">政府管理学院</option>
-      <option value="教育学院">教育学院</option>
-      <option value="艺术学院">艺术学院</option>
-      <option value="马克思主义学院">马克思主义学院</option>
-      <option value="软件与微电子学院">软件与微电子学院</option>
-      <option value="其他">其他</option>
-    </select>
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="gender">性别</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="gender-0">
-      <input type="radio" name="gender" id="gender-0" value="男" checked="checked">
-      男
-    </label> 
-    <label class="radio-inline" for="gender-1">
-      <input type="radio" name="gender" id="gender-1" value="女">
-      女
-    </label>
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="phone">电话</label>  
-  <div class="col-md-5">
-  <input id="phone" name="phone" type="text" placeholder="手机号码" class="form-control input-md" required="">
-  <span class="help-block">不填联系不上啊&gt;_&lt;</span>  
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="mail">邮箱</label>  
-  <div class="col-md-5">
-  <input id="mail" name="mail" type="text" placeholder="请填写常用邮箱" class="form-control input-md">
-    
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="work">是否加入骨干</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="work-0">
-      <input type="radio" name="work" id="work-0" value="是">
-      是
-    </label> 
-    <label class="radio-inline" for="work-1">
-      <input type="radio" name="work" id="work-1" value="否" checked="checked">
-      否
-    </label>
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-8">
-    <button id="submit" name="submit" class="btn btn-success">确认</button>
-    <button id="back" name="back" class="btn btn-danger">返回</button>
-  </div>
-</div>
+$base=new SQLite3($dbname, 0666); 
 
 
-</fieldset>
-</form>
+$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK 
+          FROM $mytable WHERE (id=$myid)";
+$results = $base->query($query);
+$row = $results->fetchArray();
 
+// $query = "CREATE TABLE $mytable(
+//             ID bigint(20) NOT NULL PRIMARY KEY,
+//             NAME text NOT NULL,
+//             GRADE text NOT NULL,         
+//             SCHOOL text NOT NULL,
+//             GENDER integer NOT NULL,
+//             PHONE text NOT NULL,
+//             MAIL text,
+//             FAVOR text,
+//             WORK integer NOT NULL      
+//             )";
 
-          </div>
-        </div>
-      </div>
-    </div>
+$id = $row['ID'];
+$name = $row['NAME'];
+$grade = $row['GRADE'];
+$school = $row['SCHOOL'];
+$gender = $row['GENDER'];
+$phone = $row['PHONE'];
+$mail = $row['MAIL'];
+$favor = $row['FAVOR'];
+$work = $row['WORK'];
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/docs.min.js"></script>
-  </body>
-</html>
+?>

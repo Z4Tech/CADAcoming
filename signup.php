@@ -48,7 +48,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="name">姓名</label>  
   <div class="col-md-4">
-  <input id="name" name="name" type="text" placeholder="你的真实姓名" class="form-control input-md" required="">
+  <input id="name" name="name" autocomplete="off" type="text" placeholder="你的真实姓名" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -57,7 +57,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="grade">年级</label>  
   <div class="col-md-4">
-  <input id="grade" name="grade" type="text" placeholder="确定是在校学生" class="form-control input-md" required="">
+  <input id="grade" name="grade" autocomplete="off" type="text" placeholder="确定是在校学生" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -66,7 +66,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="id">学号</label>  
   <div class="col-md-5">
-  <input id="id" name="id" type="text" placeholder="主要用来验证身份……" class="form-control input-md" required="">
+  <input id="id" name="id" type="text" autocomplete="off" placeholder="主要用来验证身份……" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -126,7 +126,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="phone">电话</label>  
   <div class="col-md-5">
-  <input id="phone" name="phone" type="text" placeholder="手机号码" class="form-control input-md" required="">
+  <input id="phone" name="phone" autocomplete="off" type="text" placeholder="手机号码" class="form-control input-md" required="">
   <span class="help-block">不填联系不上啊&gt;_&lt;</span>  
   </div>
 </div>
@@ -135,7 +135,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="mail">邮箱</label>  
   <div class="col-md-5">
-  <input id="mail" name="mail" type="text" placeholder="请填写常用邮箱" class="form-control input-md">
+  <input id="mail" name="mail" autocomplete="off" type="text" placeholder="请填写常用邮箱" class="form-control input-md">
     
   </div>
 </div>
