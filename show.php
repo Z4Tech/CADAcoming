@@ -1,3 +1,18 @@
+<?php
+$dbname='members.db';
+$mytable ="member";
+
+if(!class_exists('SQLite3'))
+   die("SQLite 3 NOT supported.");
+
+$base=new SQLite3($dbname, 0666); 
+
+$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK FROM $mytable";
+$results = $base->query($query);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="zh_cn">
   <head>
@@ -51,13 +66,30 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
+<?php
+
+while($arr = $results->fetchArray())
+{
+  if(count($arr) == 0) break;
+
+  echo "<tr>\n";  
+
+  $name = $arr['NAME'];
+  $school = $arr['SCHOOL']; 
+  $grade = $arr['GRADE'];
+  $phone = $arr['PHONE'];
+
+  echo "<tr>";
+  echo "<td>$name</td>";
+  echo "<td>$school</td>";
+  echo "<td>$grade</td>";
+  echo "<td>$phone</td>";
+  echo "<td></td>";
+  echo "</tr>";
+
+} 
+
+?>
               </tbody>
             </table>
           </div>
@@ -68,8 +100,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/docs.min.js"></script>
   </body>
 </html>

@@ -140,49 +140,6 @@
   </div>
 </div>
 
-<!-- Multiple Checkboxes (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="favor">兴趣</label>
-  <div class="col-md-4">
-    <label class="checkbox-inline" for="favor-0">
-      <input type="checkbox" name="favor" id="favor-0" value="移动应用开发">
-      移动应用开发
-    </label>
-    <label class="checkbox-inline" for="favor-1">
-      <input type="checkbox" name="favor" id="favor-1" value="桌面应用开发">
-      桌面应用开发
-    </label>
-    <label class="checkbox-inline" for="favor-2">
-      <input type="checkbox" name="favor" id="favor-2" value="Web应用开发">
-      Web应用开发
-    </label>
-    <label class="checkbox-inline" for="favor-3">
-      <input type="checkbox" name="favor" id="favor-3" value="服务端开发">
-      服务端开发
-    </label>
-    <label class="checkbox-inline" for="favor-4">
-      <input type="checkbox" name="favor" id="favor-4" value="UI设计">
-      UI设计
-    </label>
-    <label class="checkbox-inline" for="favor-5">
-      <input type="checkbox" name="favor" id="favor-5" value="Web设计">
-      Web设计
-    </label>
-    <label class="checkbox-inline" for="favor-6">
-      <input type="checkbox" name="favor" id="favor-6" value="程序测试">
-      程序测试
-    </label>
-    <label class="checkbox-inline" for="favor-7">
-      <input type="checkbox" name="favor" id="favor-7" value="活动策划">
-      活动策划
-    </label>
-    <label class="checkbox-inline" for="favor-8">
-      <input type="checkbox" name="favor" id="favor-8" value="宣传推广">
-      宣传推广
-    </label>
-  </div>
-</div>
-
 <!-- Multiple Radios (inline) -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="work">是否加入骨干</label>
@@ -220,8 +177,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/docs.min.js"></script>
   </body>
 </html>
