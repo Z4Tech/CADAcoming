@@ -1,7 +1,4 @@
 <?php
-
-$myid = $_GET['id'];
-
 $dbname='members.db';
 $mytable ="member";
 
@@ -10,36 +7,9 @@ if(!class_exists('SQLite3'))
 
 $base=new SQLite3($dbname, 0666); 
 
-
-$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK 
-          FROM $mytable WHERE (id=$myid)";
+$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK FROM $mytable";
 $results = $base->query($query);
-$row = $results->fetchArray();
 
-// $query = "CREATE TABLE $mytable(
-//             ID bigint(20) NOT NULL PRIMARY KEY,
-//             NAME text NOT NULL,
-//             GRADE text NOT NULL,         
-//             SCHOOL text NOT NULL,
-//             GENDER integer NOT NULL,
-//             PHONE text NOT NULL,
-//             MAIL text,
-//             FAVOR text,
-//             WORK integer NOT NULL      
-//             )";
-
-$id = $row['ID'];
-$name = $row['NAME'];
-$grade = $row['GRADE'];
-$school = $row['SCHOOL'];
-$gender = $row['GENDER'];
-$phone = $row['PHONE'];
-$mail = $row['MAIL'];
-$favor = $row['FAVOR'];
-$work = $row['WORK'];
-
-$text_gender = ($gender==0) ? "男":"女";
-$text_work = ($work==0)? "否":"是";
 
 ?>
 
@@ -52,7 +22,7 @@ $text_work = ($work==0)? "否":"是";
     <meta name="description" content="CADA Registering">
     <meta name="author" content="Z4Tech">
 
-    <title><?="CADA会员 - ".$name ?></title>
+    <title>CADA报名名单</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
@@ -86,44 +56,41 @@ $text_work = ($work==0)? "否":"是";
           <h2 class="sub-header">报名列表</h2>
           <div class="table-responsive">
             <table class="table table-striped">
-
+              <thead>
+                <tr>
+                  <th>姓名</th>
+                  <th>院系</th>
+                  <th>年级</th>
+                  <th>电话</th>
+                  <th></th>
+                </tr>
+              </thead>
               <tbody>
-              	<tr>
-					<td>学号</td>
-					<td><?= $id ?></td>
-				</tr>
-				<tr>
-					<td>姓名</td>
-					<td><?= $name ?></td>
-				</tr>
-				<tr>
-					<td>年级</td>
-					<td><?= $grade ?></td>
-				</tr>
-				<tr>
-					<td>学院</td>
-					<td><?= $school ?></td>
-				</tr>
-				<tr>
-					<td>性别</td>
-					<td><?= $text_gender ?></td>
-				</tr>
-				<tr>
-					<td>手机</td>
-					<td><?= $phone ?></td>
-				</tr>
-				<tr>
-					<td>邮箱</td>
-					<td><?= $mail ?></td>
-				</tr>
-				<tr>
-					<td>兴趣</td>
-					<td><?= $favor ?></td>
-				</tr>
-				<tr>
-					<td>是否骨干</td>
-					<td><?= $text_work ?></td>
-				</tr>
+<?php
+
+while($arr = $results->fetchArray())
+{
+  if(count($arr) == 0) break;
+
+  echo "<tr>\n";  
+
+  $id = $arr['ID'];
+  $name = $arr['NAME'];
+  $school = $arr['SCHOOL']; 
+  $grade = $arr['GRADE'];
+  $phone = $arr['PHONE'];
+
+  echo "<tr>";
+  echo "<td>$name</td>";
+  echo "<td>$school</td>";
+  echo "<td>$grade</td>";
+  echo "<td>$phone</td>";
+  echo "<td><a type='button' href='delete.php?id=$id' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-remove'></span></a></td>";
+  echo "</tr>";
+
+} 
+
+?>
               </tbody>
             </table>
           </div>
