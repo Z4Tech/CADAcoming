@@ -102,6 +102,7 @@
       <option value="艺术学院">艺术学院</option>
       <option value="马克思主义学院">马克思主义学院</option>
       <option value="软件与微电子学院">软件与微电子学院</option>
+      <option value="元培学院">元培学院</option>
       <option value="其他">其他</option>
     </select>
   </div>
