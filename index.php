@@ -34,7 +34,7 @@
 
           <div class="inner cover">
             <h1 class="cover-heading">计算机应用设计协会</h1>
-            <p class="lead">我们不止是码代码。</p>
+            <p class="lead">我们不只是码代码。</p>
             <p class="lead">
               <a href="signup" class="btn btn-lg btn-default">现在加入</a>
             </p>
