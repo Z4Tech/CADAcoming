@@ -1,13 +1,13 @@
 <?php
-$dbname='members.db';
-$mytable ="member";
+$dbname='player.db';
+$mytable ="player";
 
 if(!class_exists('SQLite3'))
    die("SQLite 3 NOT supported.");
 
-$base=new SQLite3($dbname, 0666); 
+$base=new SQLite3($dbname, 0666);
 
-$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK FROM $mytable";
+$query = "SELECT ID, NAME FROM $mytable";
 $results = $base->query($query);
 
 
@@ -22,7 +22,7 @@ $results = $base->query($query);
     <meta name="description" content="CADA Registering">
     <meta name="author" content="Z4Tech">
 
-    <title>CADA报名名单</title>
+    <title>参会名单</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
@@ -58,10 +58,8 @@ $results = $base->query($query);
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>姓名</th>
-                  <th>院系</th>
-                  <th>年级</th>
-                  <th>电话</th>
                   <th></th>
                 </tr>
               </thead>
@@ -72,23 +70,18 @@ while($arr = $results->fetchArray())
 {
   if(count($arr) == 0) break;
 
-  echo "<tr>\n";  
+  echo "<tr>\n";
 
   $id = $arr['ID'];
   $name = $arr['NAME'];
-  $school = $arr['SCHOOL']; 
-  $grade = $arr['GRADE'];
-  $phone = $arr['PHONE'];
 
   echo "<tr>";
   echo "<td>$name</td>";
   echo "<td>$school</td>";
-  echo "<td>$grade</td>";
-  echo "<td>$phone</td>";
   echo "<td><a type='button' href='delete.php?id=$id' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-remove'></span></a></td>";
   echo "</tr>";
 
-} 
+}
 
 ?>
               </tbody>

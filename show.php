@@ -1,13 +1,13 @@
 <?php
-$dbname='members.db';
-$mytable ="member";
+$dbname='player.db';
+$mytable ="player";
 
 if(!class_exists('SQLite3'))
    die("SQLite 3 NOT supported.");
 
-$base=new SQLite3($dbname, 0666); 
+$base=new SQLite3($dbname, 0666);
 
-$query = "SELECT ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK FROM $mytable";
+$query = "SELECT ID, NAME FROM $mytable";
 $results = $base->query($query);
 
 
@@ -22,7 +22,7 @@ $results = $base->query($query);
     <meta name="description" content="CADA Registering">
     <meta name="author" content="Z4Tech">
 
-    <title>CADA报名名单</title>
+    <title>参会名单</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
@@ -39,12 +39,13 @@ $results = $base->query($query);
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index">CADA报名</a>
+          <a class="navbar-brand" href="index">CADA迎新</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index">报名</a></li>
+            <li><a href="index">登记</a></li>
             <li class="active"><a href="show">列表</a></li>
+            <li><a href="bingo">抽奖</a></li>
           </ul>
         </div>
       </div>
@@ -58,10 +59,8 @@ $results = $base->query($query);
             <table class="table table-striped">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>姓名</th>
-                  <th>院系</th>
-                  <th>年级</th>
-                  <th>电话</th>
                   <th></th>
                 </tr>
               </thead>
@@ -72,23 +71,17 @@ while($arr = $results->fetchArray())
 {
   if(count($arr) == 0) break;
 
-  echo "<tr>\n";  
+  echo "<tr>\n";
 
   $id = $arr['ID'];
   $name = $arr['NAME'];
-  $school = $arr['SCHOOL']; 
-  $grade = $arr['GRADE'];
-  $phone = $arr['PHONE'];
 
   echo "<tr>";
+  echo "<td>$id</td>";
   echo "<td>$name</td>";
-  echo "<td>$school</td>";
-  echo "<td>$grade</td>";
-  echo "<td>$phone</td>";
-  echo "<td><a type='button' href='view.php?id=$id' class='btn btn-default btn-sm'><span class='glyphicon glyphicon-eye-open'></span></a></td>";
   echo "</tr>";
 
-} 
+}
 
 ?>
               </tbody>

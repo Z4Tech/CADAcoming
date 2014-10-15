@@ -1,13 +1,13 @@
 <?php
 $myid = $_GET['id'];
 
-$dbname='members.db';
-$mytable ="member";
+$dbname='player.db';
+$mytable ="player";
 
 if(!class_exists('SQLite3'))
    die("SQLite 3 NOT supported.");
 
-$base=new SQLite3($dbname, 0666); 
+$base=new SQLite3($dbname, 0666);
 
 $query = "DELETE FROM $mytable WHERE (id=$myid)";
 

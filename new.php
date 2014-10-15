@@ -2,39 +2,17 @@
 
 $id = $_POST['id'];
 $name = $_POST['name'];
-$grade = $_POST['grade'];
-$school = $_POST['school'];
-$text_gender = $_POST['gender'];
-$phone = $_POST['phone'];
-$mail = $_POST['mail'];
-$arr_favor = $_POST['favor'];
-$text_work = $_POST['work'];
 
-if($text_gender == "男"){
-	$gender = 0;
-}
-else $gender = 1;
-
-if($text_work == "否"){
-	$work = 0;
-}
-else $work = 1;
-
-$favor = implode(' ',$arr_favor);
-
-// echo $gender;
-// echo $work;
-// echo $favor;
-$dbname='members.db';
-$mytable ="member";
+$dbname='player.db';
+$mytable ="player";
 
 if(!class_exists('SQLite3'))
    die("SQLite 3 NOT supported.");
 
-$base=new SQLite3($dbname, 0666); 
+$base=new SQLite3($dbname, 0666);
 
-$query = "INSERT INTO $mytable(ID, NAME, GRADE, SCHOOL, GENDER, PHONE, MAIL, FAVOR, WORK) 
-                VALUES ('$id', '$name', '$grade', '$school', '$gender', '$phone', '$mail', '$favor', '$work')";
+$query = "INSERT INTO $mytable(ID, NAME)
+                VALUES ('$id', '$name')";
 $results = $base->exec($query);
 
 // echo $id;
@@ -47,9 +25,9 @@ $results = $base->exec($query);
 // echo $favor;
 // echo $work;
 
-// $value = $_POST['favor']; 
+// $value = $_POST['favor'];
 // echo "<br>";
-// echo implode(',',$value); 
+// echo implode(',',$value);
 // echo $gender == '男';
 
 ?>
@@ -82,8 +60,7 @@ $results = $base->exec($query);
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">入坑成功</h1>
-            <p class="lead">完成成就——加入CADA</p>
+            <h1 class="cover-heading">OK</h1>
           </div>
 
           <div class="mastfoot">

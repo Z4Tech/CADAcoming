@@ -7,11 +7,11 @@
     <meta name="description" content="CADA Registering">
     <meta name="author" content="Z4Tech">
 
-    <title>CADA报名</title>
+    <title>CADA迎新</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-    <link href="./css/cover.css" rel="stylesheet">
+    <link href="./css/signin.css" rel="stylesheet">
   </head>
 
   <body>
@@ -20,31 +20,37 @@
 
       <div class="site-wrapper-inner">
 
-        <div class="cover-container">
-
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">CADA报名</h3>
-              <ul class="nav masthead-nav">
-                <li class="active"><a href="index">报名</a></li>
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="index">CADA迎新</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index">登记</a></li>
                 <li><a href="show">列表</a></li>
+                <li><a href="bingo">抽奖</a></li>
               </ul>
             </div>
           </div>
+        </div>
 
-          <div class="inner cover">
-            <h1 class="cover-heading">计算机应用设计协会</h1>
-            <p class="lead">我们不只是码代码。</p>
-            <p class="lead">
-              <a href="signup" class="btn btn-lg btn-default">现在加入</a>
-            </p>
-          </div>
+        <div class="cover-container">
 
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Created by Z4Tech, 2014</p>
-            </div>
-          </div>
+        <form class="form-signin" role="form" method="POST" action="new.php">
+        <h2 class="form-signin-heading">参会登记</h2>
+        <input id="name" name="name" autocomplete="off" class="form-control" placeholder="姓名" required autofocus>
+        <input id="id" name="id" autocomplete="off" class="form-control" placeholder="学号" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登记</button>
+      </form>
+
+
 
         </div>
 
