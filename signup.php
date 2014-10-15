@@ -132,15 +132,6 @@
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="mail">邮箱</label>  
-  <div class="col-md-5">
-  <input id="mail" name="mail" autocomplete="off" type="text" placeholder="请填写常用邮箱" class="form-control input-md">
-    
-  </div>
-</div>
-
 <!-- Multiple Checkboxes (inline) -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="favor">兴趣</label>
@@ -181,6 +172,15 @@
       <input type="checkbox" name="favor[]" id="favor-8" value="宣传推广">
       宣传推广
     </label>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="mail">邮箱</label>  
+  <div class="col-md-5">
+  <input id="mail" name="mail" autocomplete="off" type="text" placeholder="请填写常用邮箱" class="form-control input-md">
+    
   </div>
 </div>
 
