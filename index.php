@@ -46,7 +46,7 @@
         <form class="form-signin" role="form" method="POST" action="new.php">
         <h2 class="form-signin-heading">参会登记</h2>
         <input id="name" name="name" autocomplete="off" class="form-control" placeholder="姓名" required autofocus>
-        <input id="id" name="id" autocomplete="off" class="form-control" placeholder="学号" required>
+        <input id="id" name="id" autocomplete="off" class="form-control" placeholder="手机" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登记</button>
       </form>
 
